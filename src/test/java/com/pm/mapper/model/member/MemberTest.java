@@ -42,50 +42,40 @@ public class MemberTest {
     }
 
     //서비스의 회원가입이 되는 지 확인
-    @Test
-    public void testSingUp_NotNull(){
-        member.setEmail("ttt111@tset.com");
-        member.setNickname("testeew");
-        member.setPassword("12422");
-        memberRepository.save(member);
-        Assert.assertNotNull(member);
-    }
+//    @Test
+//    public void testSingUp_NotNull(){
+//        member.setEmail("ttt113@tset.com");
+//        member.setNickname("testeew");
+//        member.setPassword("12422");
+//        memberRepository.save(member);
+//        Assert.assertNotNull(member);
+//    }
 
     //로그인이 되는 지 확인
-    @Test
-    public void testSingIn_InputData(){
-        String result = "";
-
-        long emailCheck = memberRepository.countByEmail("ttt111@tset.com");
-        if(emailCheck == 1){
-            String pwCheck = memberRepository.findByEmail("ttt111@tset.com").getPassword();
-            if(pwCheck.equals("12422")){
-                result = "로그인 성공";
-            }else{
-                result = "비밀번호를 확인해주세요";
-            }
-        }else {
-            result = "아이디를 확인해주세요";
-        }
-    }
+//    @Test
+//    public void testSingIn_InputData(){
+//        String result = "";
+//
+//        long emailCheck = memberRepository.countByEmail("test@test.com");
+//        if(emailCheck == 1){
+//            String pwCheck = memberRepository.findByEmail("test@tset.com").getPassword();
+//            if(pwCheck.equals("testpwd")){
+//                result = "로그인 성공";
+//            }else{
+//                result = "비밀번호를 확인해주세요";
+//            }
+//        }else {
+//            result = "아이디를 확인해주세요";
+//        }
+//    }
     //통과
 
     // member의 email를 찾는 테스트
-    @Test
-    public void testFindEmail(){
-        Member findEmail = memberRepository.findByEmail("ttt111@tset.com");
-        log.info(findEmail.getNickname());
-    }
-    //통과
+//    @Test
+//    public void testFindEmail() {
+//        Member findEmail = memberRepository.findByEmail("ttt111@tset.com");
+//        log.info(findEmail.getNickname());
+//    }//통과
+//
 
-    //update Test
-    @Test
-    public void testUpdateByMember(){
-        member.setEmail("ttt111@tset.com");
-        member.setNickname("test11a");
-        member.setPassword("13333");
-        memberRepository.save(member);
-        Assert.assertNotNull(memberRepository);
-    }
-    //통과
 }

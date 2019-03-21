@@ -34,13 +34,13 @@ public class UnsolvedQuestionTest {
     }
 
     // Service > inserQuestion 메서드 Test
-    @Test
-    public void testInsertUnsolvedQuestion() {
-        unsolvedQuestion = new UnsolvedQuestion("작가", "제목", "내용", "Java");
-        unsolvedQuestion.setDate(new Date());
-        unsolvedQuestionRepository.save(unsolvedQuestion);
-        Assert.assertNotNull(unsolvedQuestion);
-    }//통과
+//    @Test
+//    public void testInsertUnsolvedQuestion() {
+//        unsolvedQuestion = new UnsolvedQuestion("작가", "제목", "내용", "Java");
+//        unsolvedQuestion.setDate(new Date());
+//        unsolvedQuestionRepository.save(unsolvedQuestion);
+//        Assert.assertNotNull(unsolvedQuestion);
+//    }//통과
 
     // Service > findQuestion 메서드 Test
     @Test

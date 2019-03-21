@@ -61,22 +61,22 @@ public class ReviewTest {
     //통과
 
     //모두 가져오는 메서드 테스트
-    @Test
-    public void testReviewServiceListAll(){
-        //대소문자 구분없이 내림차순으로 키워드에 맞게 모두 찾는다.
-        List<Review> result= reviewRepository.findAllByKeywordIgnoreCaseOrderByIdDesc("java");
-        Assert.assertNotNull(result);
-    }
+//    @Test
+//    public void testReviewServiceListAll(){
+//        //대소문자 구분없이 내림차순으로 키워드에 맞게 모두 찾는다.
+//        List<Review> result= reviewRepository.findAllByKeywordIgnoreCaseOrderByIdDesc("java");
+//        Assert.assertNotNull(result);
+//    }
     //통과
 
 
     //리뷰의 데이터를 넣는 테스트
-    @Test
-    public void testReviewInsert(){
-        review = reviewRepository.save(review);
-        log.info(review.getKeyword());
-        reviewRepository.delete(review);
-    }
+//    @Test
+//    public void testReviewInsert(){
+//        review = reviewRepository.save(review);
+//        log.info(review.getKeyword());
+//        reviewRepository.delete(review);
+//    }
     //통과
 
     //ReviewService insertOne메서드 테스트

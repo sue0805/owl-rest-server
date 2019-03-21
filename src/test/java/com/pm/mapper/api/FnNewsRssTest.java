@@ -18,16 +18,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
-@Slf4j
+//@SpringBootTest
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@Slf4j
 public class FnNewsRssTest {
-
-    @Autowired
-    private FnNewsRss fnNewsRss;
-
-    @Test
-    public void testFnNewsRss_NotNull(){
-        Assert.assertNotNull(fnNewsRss);
-    }
+//
+//    @Autowired
+//    private FnNewsRss fnNewsRss;
+//
+//    @Test
+//    public void testFnNewsRss_NotNull(){
+//        Assert.assertNotNull(fnNewsRss);
+//    }
 }

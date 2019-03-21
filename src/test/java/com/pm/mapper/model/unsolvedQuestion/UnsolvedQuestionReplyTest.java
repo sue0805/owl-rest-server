@@ -43,16 +43,17 @@ public class UnsolvedQuestionReplyTest {
     }
 
     //댓글 테이블에 값 넣기
-    @Test
-    public void testUnsolvedQuestionReply_Insert(){
-        UnsolvedQuestionReply unsolvedQuestionReply = new UnsolvedQuestionReply();
-        unsolvedQuestionReply.setReply_content("포트를 바꿔보세요");
-        unsolvedQuestionReply.setReply_writer("용재");
-        unsolvedQuestionReply.setReplyDate(new Date());
-        unsolvedQuestionReply.setMember(memberService.getMemberByEmail("test@test.com"));
-        unsolvedQuestionReply.setUnsolvedQuestion(unsolvedQuestionRepository.getOne(2472L));
-        unsolvedQuestionReplyRepository.save(unsolvedQuestionReply);
-        Assert.assertNotNull(unsolvedQuestionReply);
-        unsolvedQuestionReplyRepository.delete(unsolvedQuestionReply);
-    }
+//    @Test
+//    public void testUnsolvedQuestionReply_Insert(){
+//        UnsolvedQuestionReply unsolvedQuestionReply = new UnsolvedQuestionReply();
+//        unsolvedQuestionReply.setReply_content("포트를 바꿔보세요");
+//        unsolvedQuestionReply.setReply_writer("용재");
+//        unsolvedQuestionReply.setReplyDate(new Date());
+//        unsolvedQuestionReply.setMember(memberService.getMemberByEmail("test@test.com"));
+//        unsolvedQuestionReply.setUnsolvedQuestion(unsolvedQuestionRepository.getOne(2472L));
+//        unsolvedQuestionReplyRepository.save(unsolvedQuestionReply);
+//        Assert.assertNotNull(unsolvedQuestionReply);
+//        unsolvedQuestionReplyRepository.delete(unsolvedQuestionReply);
+//    }
+
 }
