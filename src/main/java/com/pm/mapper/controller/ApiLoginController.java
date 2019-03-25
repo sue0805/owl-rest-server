@@ -94,6 +94,7 @@ public class ApiLoginController extends JwtHelper {
 
         JsonParser parser = new JsonParser();
         JsonElement accessElement = parser.parse(res.toString());
+        System.out.println(res.toString());
         access_token = accessElement.getAsJsonObject().get("access_token").getAsString();
 
         tmp = getUserInfo(access_token, userTokenURL);
