@@ -51,7 +51,10 @@ public class MemberController {
     public Member editMember(@RequestBody Map<String, String> map){
         Member member = memberService.findOne(Long.parseLong(map.get("mem_idx")));
         if(map.containsKey("nickname")) member.setNickname(map.get("nickname"));
-        if(map.containsKey("password")) member.setPassword(map.get("password"));
+        if(map.containsKey("password")){
+            if(member.getPassword().equals(map.get("currpwd"))) member.setPassword(map.get("password"));
+            else return null;
+        }
         return memberService.update(member);
     }
 
