@@ -1,6 +1,7 @@
 package com.pm.mapper.controller;
 
 import com.pm.mapper.model.member.Member;
+import com.pm.mapper.pojo.Sha256;
 import com.pm.mapper.service.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +23,17 @@ public class MemberController {
                          @RequestParam(value = "password", required = true) String password){
         //nickname , password 인코딩
         try {
+
             nickname = new String(nickname.getBytes("8859_1"),"utf-8");
             password = new String(password.getBytes("8859_1"),"utf-8");
+            password = Sha256.encrypt(password);
+
         } catch (Exception e) {
+
             e.printStackTrace();
+
         }
+
         return memberService.signUp(email,nickname,password);
     }
 
@@ -35,7 +42,7 @@ public class MemberController {
     public Map signIn(
             @RequestParam(value = "email", required = true) String email,
             @RequestParam(value = "password", required = true) String password){
-        return memberService.signIn(email,password);
+        return memberService.signIn(email,Sha256.encrypt(password));
     }
 
     // 회원 정보 받기
@@ -52,7 +59,7 @@ public class MemberController {
         Member member = memberService.findOne(Long.parseLong(map.get("mem_idx")));
         if(map.containsKey("nickname")) member.setNickname(map.get("nickname"));
         if(map.containsKey("password")){
-            if(member.getPassword().equals(map.get("currpwd"))) member.setPassword(map.get("password"));
+            if(member.getPassword().equals(Sha256.encrypt(map.get("currpwd")))) member.setPassword(Sha256.encrypt(map.get("password")));
             else return null;
         }
         return memberService.update(member);
@@ -62,7 +69,7 @@ public class MemberController {
     @DeleteMapping("/delete")
     public int delMember(@RequestBody Map<String, String> map){
         Member member = memberService.findOne(Long.parseLong(map.get("mem_idx")));
-        if(!member.getPassword().equals(map.get("password"))) return 0;
+        if(!member.getPassword().equals(Sha256.encrypt(map.get("password")))) return 0;
         memberService.delete(member);
         return 1;
     }

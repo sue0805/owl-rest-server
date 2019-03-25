@@ -50,8 +50,8 @@ dependencies {
 
     compile 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
     
-    
-
+    // 비밀번호 암호화
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
 
 }
 
