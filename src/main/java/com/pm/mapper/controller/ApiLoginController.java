@@ -78,7 +78,7 @@ public class ApiLoginController extends JwtHelper {
         apiURL += "client_id=" + githubClientID;
         apiURL += "&client_secret=" + githubClientSecret;
         apiURL += "&code=" + code;
-        apiURL += "&redirect_uri=http://localhost:8095/api/github/callback";
+        apiURL += "&redirect_uri=http://52.79.204.244/api/github/callback";
         apiURL += "&state=123";
         String userTokenURL = "https://api.github.com/user";
         System.out.println(apiURL);
@@ -94,6 +94,7 @@ public class ApiLoginController extends JwtHelper {
 
         JsonParser parser = new JsonParser();
         JsonElement accessElement = parser.parse(res.toString());
+        System.out.println(res.toString());
         access_token = accessElement.getAsJsonObject().get("access_token").getAsString();
 
         tmp = getUserInfo(access_token, userTokenURL);
@@ -117,7 +118,7 @@ public class ApiLoginController extends JwtHelper {
                 memberService.signUp(fakeEmail,nickName,null); // 기존 회원이 아닐 시 DB 등록
             access_token = getJWTTokenFromMember(id, nickName, identify);
         }
-        URI front = new URI("http://localhost:8085/?token="+access_token);
+        URI front = new URI("http://13.209.213.138/?token="+access_token);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setLocation(front);
         return new ResponseEntity(httpHeaders, HttpStatus.SEE_OTHER);
