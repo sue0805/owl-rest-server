@@ -76,7 +76,7 @@ public class QuestionsController {
     public int deleteUnsolvedQuestion(@RequestBody UnsolvedQuestion question){
         try{
 
-            List<MemberScrap> slist = scrapService.findBylink("http://localhost:8095/question/unsolved/find/" + question.getId());
+            List<MemberScrap> slist = scrapService.findBylink("http://52.79.204.244/question/unsolved/find/" + question.getId());
             if(slist.size() > 0){
                 scrapService.deleteAll(slist);
             }
@@ -147,11 +147,11 @@ public class QuestionsController {
         unsolvedQuestionService.deleteByQuestion(tmp);
 
 
-        List<MemberScrap> slist = scrapService.findBylink("http://localhost:8095/question/unsolved/find/" + id);
+        List<MemberScrap> slist = scrapService.findBylink("http://52.79.204.244/question/unsolved/find/" + id);
         System.out.println(slist);
         if(slist.size() > 0){
             slist.forEach(scrap -> {
-                scrap.setLink("http://localhost:8095/question/sorted?id=" + sq.getId());
+                scrap.setLink("http://52.79.204.244/question/sorted?id=" + sq.getId());
             });
         }
         scrapService.saveAll(slist);
@@ -224,7 +224,7 @@ public class QuestionsController {
     public int deleteSortedQuestion(@RequestBody SortedQuestion question){
         try{
 
-            List<MemberScrap> slist = scrapService.findBylink("http://localhost:8095/question/sorted?id=" + question.getId());
+            List<MemberScrap> slist = scrapService.findBylink("http://52.79.204.244/question/sorted?id=" + question.getId());
 
             if(slist.size() > 0){
                 scrapService.deleteAll(slist);
